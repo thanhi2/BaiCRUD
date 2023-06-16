@@ -13,6 +13,8 @@ import { Observable } from 'rxjs';
 
 export class BootService{
 
+
+
     constructor(private location: Location, private http: HttpClient) { }
     goBack(): void {
         this.location.back();
@@ -32,13 +34,13 @@ export class BootService{
         return this.http.get<Post[]>(this.getListURL)
     }
 
-    postPost(post: Post){
-        return this.http.post<any>(this.post1URL, post)
-    }
-
     getPost(id: number){
         const url = `${this.getList1URL}/${id}`;
         return this.http.get<Post>(url)
+    }
+    
+    postPost(post: Post){
+        return this.http.post<any>(this.post1URL, post)
     }
 
     putPost(post: Post){
